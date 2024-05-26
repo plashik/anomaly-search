@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css\style.css">
+</head>
+
+<body>
+    <div id="main">
+        <style>
+            .c {
+                margin-top: 10%;
+                width: 1500px;
+                height: 500px;
+                position: relative;
+                animation: mymove 20s;
+                animation-fill-mode: forwards;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+            }
+
+            #main {
+                animation: none;
+                animation-timing-function: none;
+                width: 100%;
+                margin: 0 auto
+            }
+
+            .center {
+                width: 50%;
+                margin-left: 25%;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+            }
+            #wi {
+                cursor: normal;
+                width: 100%;
+                height: 100%;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+            }
+
+            .btn {
+                align-content: center;
+                font-family: 'Roboto';
+                font: 'Roboto';
+                font-size: 16px;
+                width: 230px;
+                height: 70px;
+                animation: none;
+                animation-timing-function: none;
+                background-color: black;
+                border: 1px solid gold;
+                border-radius: 5px;
+                color: white;
+            }
+
+            #btn1 {
+                background-color: gold;
+                color: black;
+            }
+
+            #btn1:hover {
+                background-color: white;
+            }
+
+            @keyframes shake {
+                0% {
+                    transform: skewX(-15deg);
+                }
+
+                5% {
+                    transform: skewX(15deg);
+                }
+
+                10% {
+                    transform: skewX(-15deg);
+                }
+
+                15% {
+                    transform: skewX(15deg);
+                }
+
+                20% {
+                    transform: skewX(0deg);
+                }
+
+                100% {
+                    transform: skewX(0deg);
+                }
+            }
+
+            @keyframes centerjump {
+                from {
+                    left: 0;
+                    opacity: 1;
+                }
+
+                to {
+                    left: 100%;
+                    opacity: 0;
+                }
+            }
+
+            @keyframes mymove {
+                from {
+                    left: -1000px;
+                }
+
+                to {
+                    left: 1000px;
+                }
+            }
+
+            @keyframes mymove2 {
+                from {
+                    right: -1000px;
+                }
+
+                to {
+                    right: 1000px;
+                }
+            }
+        </style>
+
+        <div class="loader" id="l"></div>
+
+
+        <div id="cntt">
+        </div>
+
+        <script>
+            var n = 15;
+            var cnt = 0;
+            var guess = false;
+            var a = false;
+            document.getElementById("cntt").innerHTML = "Угадано: " + cnt  + " из 5";;
+        </script>
+
+        <div class="c" id="c0">
+            <h2>Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+            </h2>
+        </div>
+
+        <div class="c" id="c1">
+            <h2>Здесь нет аномалий Здесь нет аномалий Здесь нет аномалий<br>
+                Здесь нет аномалий Здесь нет аномалий Здесь нет аномалий<br>
+                Здесь нет аномалий Здесь нет аномалий Здесь нет аномалий<br>
+            </h2>
+        </div>
+
+        <div class="c" id="c2">
+            <h2 id="text2">Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+            </h2>
+        </div>
+
+        <div class="c" id="c3">
+            <h2 id="text3">Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+            </h2>
+        </div>
+
+        <div class="c" id="c4">
+            <h2 id="text4">Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+            </h2>
+        </div>
+
+        <div class="c" id="c5">
+            <h2>Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+            </h2>
+        </div>
+        <div class="c" id="c6">
+            <h2>Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий.<br>
+            </h2>
+        </div>
+
+        <div class="c" id="c7">
+            <h2>Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+            </h2>
+        </div>
+
+        <div class="c" id="c8">
+            <h2>Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+            </h2>
+        </div>
+
+        <div class="c" id="c9">
+            <h2 id="t9">Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+            </h2>
+        </div>
+
+        <div class="c" id="c10">
+            <h2>Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+            </h2>
+        </div>
+
+        <div class="c" id="c11">
+            <h2>Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+            </h2>
+        </div>
+
+        <div class="c" id="c12">
+            <h2>Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+            </h2>
+        </div>
+
+
+        <div class="c" id="c13">
+            <h2>Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+            </h2>
+        </div>
+
+        <div class="c" id="c14">
+            <h2 id="text14">Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+                Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
+            </h2>
+        </div>
+        <div id="wi">
+            <h1> ВЫ ВЫИГРАЛИ!
+            </h1>
+            <div id="e">
+                <button class="btn" id="btnw" onclick="start()">Заново</button>
+            </div>
+        </div>
+
+
+        <script>
+            n = 15;
+
+            cnt = 0;
+            guess = false;
+            a = false;
+            document.body.style.cursor = 'normal';
+
+            window.onload = start();
+            
+            function start() {
+                document.getElementById("cntt").style.display = "";
+
+                document.body.style.cursor = 'normal';
+
+                document.getElementById("l").style.display = "none";
+
+
+                cnt = 0;
+                document.getElementById("cntt").innerHTML = "Определите, есть ли аномалия. Угадано: " + cnt + " из 5";
+
+                guess = false;
+                a = false;
+                document.getElementById("wi").style.display = "none";
+                for (i = 1; i < n; i++) {
+                    document.getElementById("c" + i).style.display = "none";
+                }
+            
+                document.getElementById("e").style.display = "none";
+                document.getElementById("cntt").style.display = "";
+                document.getElementById("j").style.display = "";
+                document.body.style.cursor = 'normal';
+                document.body.style.backgroundImage = "";
+                document.getElementById("c0").style.display = "";
+            }
+
+            function blacken() {
+                document.body.style.cursor = 'normal';
+
+                for (i = 0; i < n; i++) {
+                    
+                    document.getElementById("c" + i).style.display = "none";
+                }
+                document.getElementById("e").style.display = "none";
+                document.getElementById("cntt").style.display = "none";
+                document.getElementById("j").style.display = "none";
+                document.body.style.cursor = 'normal';
+                document.body.style.backgroundImage = "";
+                document.getElementById("l").style.display = "";
+
+                myTimeout = setTimeout(next, 1500);
+            }
+
+            function next() {
+                document.getElementById("cntt").style.display = "";
+
+                
+                document.getElementById("l").style.display = "none";
+                document.body.style.cursor = 'normal';
+
+                document.body.style.backgroundImage = "";
+                document.getElementById("j").style.display = "";
+                document.getElementById("wi").style.display = "none";
+                document.getElementById("e").style.display = "none";
+                let randomNumber = Math.floor(Math.random() * (n - 1));
+                
+                    let randomFactor = Math.floor(Math.random() * 10);
+                    randomNumber = randomNumber * (randomFactor % 2);
+                for (i = 0; i < n; i++) {
+                    if (randomNumber == i) {
+                        document.getElementById("c" + i).style.display = "";
+                        if (i == 0) {
+                            a = false;
+                        } else {
+                            a = true;
+                        }
+                        if (i == 12) {
+                            document.getElementById("cntt").style.display = "none";
+                        } else {
+                            document.getElementById("cntt").style.display = "";
+                            document.body.style.cursor = 'normal';
+                        }
+                        if (i == 5) {
+                            document.body.style.backgroundImage = "url(img/bg.png)";
+                        }
+                    }
+                    else {
+                        document.getElementById("c" + i).style.display = "none";
+                    }
+                }
+            }
+
+            function check() {
+                document.body.style.cursor = 'normal';
+                if (a == guess) {
+                    cnt += 1;
+                    if (cnt == 5) {
+                        win();
+                        return;
+                    }
+                } else {
+                    cnt = 0;
+                }
+                blacken();
+                document.getElementById("cntt").innerHTML = "Угадано: " + cnt  + " из 5";;
+            }
+
+            function ny() {
+                document.body.style.cursor = 'normal';
+
+                guess = true;
+                check();
+            }
+
+            function nn() {
+                document.body.style.cursor = 'normal';
+
+                guess = false;
+                check();
+            }
+            function win() {
+                document.body.style.cursor = 'normal';
+
+                document.getElementById("l").style.display = "none";
+                stop();
+                document.getElementById("wi").style.display = "";
+                cnt = 0;
+                for (i = 0; i < n; i++) {
+                    document.getElementById("c" + i).style.display = "none";
+                }
+                document.getElementById("j").style.display = "none";
+                document.getElementById("cntt").style.display = "none";
+                document.getElementById("e").style.display = "";
+                document.body.style.cursor = 'normal';
+                document.body.style.backgroundImage = "";
+            }
+        </script>
+        <div id="j">
+            <div class="center">
+                <button class="btn" id="btn1" onclick="ny()">Аномалия</button>
+                <button class="btn" id="btn2" onclick="nn()">Нет аномалии</button>
+            </div>
+        </div>
+</body>
+
+</html>
