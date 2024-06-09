@@ -13,15 +13,28 @@
 <body>
     <div id="main">
         <style>
+            .mainText {
+                color: gold;
+                position: absolute;
+                font-size: 36px;
+                top: 5%;
+                left: 2%;
+            }
+            .textOnTheRight {
+                right: 0px;
+            }
             .c {
-                margin-top: 10%;
-                width: 1500px;
-                height: 500px;
+                margin-top: 20%;
+                margin-left: 5%;
+                margin-right: 5%;
+                width: 200%;
+                height: 100%;
                 position: relative;
                 animation: mymove 20s;
                 animation-fill-mode: forwards;
                 animation-timing-function: linear;
                 animation-iteration-count: infinite;
+                font-size: 24px;
             }
 
             #main {
@@ -30,13 +43,14 @@
                 width: 100%;
                 margin: 0 auto
             }
-
-            .center {
+            .buttons {
                 width: 50%;
                 margin-left: 25%;
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
+                position: absolute;
+                bottom: 0px;
             }
             #wi {
                 cursor: normal;
@@ -62,6 +76,12 @@
                 border: 1px solid gold;
                 border-radius: 5px;
                 color: white;
+                margin-bottom: 10%;
+            }
+
+            .cnt {
+                position: absolute;
+                top: 0px;
             }
 
             #btn1 {
@@ -135,16 +155,25 @@
         <div class="loader" id="l"></div>
 
 
-        <div id="cntt">
+        <div class="mainText" id="cntt">
         </div>
+
 
         <script>
             var n = 15;
-            var cnt = 0;
+            var cnt = 1;
             var guess = false;
             var a = false;
-            document.getElementById("cntt").innerHTML = "Угадано подряд: " + cnt  + " из 5";;
+            document.getElementById("cntt").innerHTML = "Уровень " + cnt  + " из " + n;
         </script>
+
+
+        <div class="mainText" id="cRules">
+            Найдите аномалию! Сейчас на экране пример без них. Запомните его! <br>
+            Аномалии — любые изменения в данном примере. <br>
+            Нажимайте на кнопку, если считаете, что на уровне есть аномалия. <br>
+            Если угадаете — перейдёте на следующий <br>
+        </div>
 
         <div class="c" id="c0">
             <h2>Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
@@ -152,6 +181,7 @@
                 Здесь нет аномалий. Здесь нет аномалий. Здесь нет аномалий.<br>
             </h2>
         </div>
+        
 
         <div class="c" id="c1">
             <h2>Здесь нет аномалий Здесь нет аномалий Здесь нет аномалий<br>
@@ -270,15 +300,16 @@
             window.onload = start();
             
             function start() {
+                
+                document.getElementById("cRules").style.display = "";
                 document.getElementById("cntt").style.display = "";
 
                 document.body.style.cursor = 'normal';
 
                 document.getElementById("l").style.display = "none";
 
-
                 cnt = 0;
-                document.getElementById("cntt").innerHTML = "Определите, есть ли аномалия. Угадано подряд: " + cnt + " из 5";
+                document.getElementById("cntt").innerHTML = "";
                 
                 guess = false;
                 a = false;
@@ -305,6 +336,7 @@
                 document.getElementById("e").style.display = "none";
                 document.getElementById("cntt").style.display = "none";
                 document.getElementById("j").style.display = "none";
+                document.getElementById("cRules").style.display = "none";
                 document.body.style.cursor = 'normal';
                 document.body.style.backgroundImage = "";
                 document.getElementById("l").style.display = "";
@@ -323,14 +355,9 @@
                 document.getElementById("j").style.display = "";
                 document.getElementById("wi").style.display = "none";
                 document.getElementById("e").style.display = "none";
-                let randomNumber = Math.floor(Math.random() * (n - 1));
-                
-                    let randomFactor = Math.floor(Math.random() * 100);
-                    if (randomFactor % 5 == 0) {
-                        randomNumber = 0;
-                    }
+
                 for (i = 0; i < n; i++) {
-                    if (randomNumber == i) {
+                    if (cnt == i) {
                         document.getElementById("c" + i).style.display = "";
                         if (i == 0) {
                             a = false;
@@ -355,17 +382,24 @@
 
             function check() {
                 document.body.style.cursor = 'normal';
+                blacken();
+
                 if (a == guess) {
                     cnt += 1;
-                    if (cnt == 5) {
+                    if (cnt == 15) {
                         win();
                         return;
                     }
                 } else {
-                    cnt = 0;
+                    if (cnt == 0) {
+                        
+                        document.getElementById("cntt").innerHTML =  "Найдите аномалию! Сейчас на экране пример без них. Запомните его! <br>" + 
+                        "Аномалии — любые изменения в данном примере. <br>" + "Нажимайте на кнопку, если считаете, что на уровне есть аномалия. <br>" + 
+                        "Если угадаете — перейдёте на следующий <br>"
+                        return;
+                    }
                 }
-                blacken();
-                document.getElementById("cntt").innerHTML = "Угадано подряд: " + cnt  + " из 5";;
+                document.getElementById("cntt").innerHTML = "Уровень " + cnt  + " из " + n;
             }
 
             function ny() {
@@ -398,8 +432,8 @@
                 document.body.style.backgroundImage = "";
             }
         </script>
-        <div id="j">
-            <div class="center">
+        <div class="j" id="j">
+            <div class="buttons">
                 <button class="btn" id="btn1" onclick="ny()">Аномалия</button>
                 <button class="btn" id="btn2" onclick="nn()">Нет аномалии</button>
             </div>
